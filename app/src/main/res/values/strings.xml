@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Calculadora PDM 2020 2</string>
+    <string name="zero">0</string>
+    <string name="um">1</string>
+    <string name="dois">2</string>
+    <string name="limpar">Limpar</string>
 </resources>
