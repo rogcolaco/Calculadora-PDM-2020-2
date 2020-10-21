@@ -28,20 +28,46 @@ public class MainActivity extends AppCompatActivity{
     public void onClick(View view){
         switch ((view.getId())) {
             case R.id.zeroBtn:
-                value = value+(getString(R.string.zero));
-                fillVisor(value);
-                //visorTv.setText(getString(R.string.zero));
-                //Log.v(getString(R.string.app_name),getString(R.string.zero));
+                if (!value.equals("")) {
+                    value = value + (getString(R.string.zero));
+                    fillVisor(value);
+                }
                 break;
             case R.id.umBtn:
                 value = value+(getString(R.string.um));
                 fillVisor(value);
-                //visorTv.setText(getString(R.string.um));
                 break;
             case R.id.doisBtn:
                 value = value+(getString(R.string.dois));
                 fillVisor(value);
-                //visorTv.setText(getString(R.string.dois));
+                  break;
+            case R.id.tresBtn:
+                value = value+(getString(R.string.tres));
+                fillVisor(value);
+                break;
+            case R.id.quatroBtn:
+                value = value+(getString(R.string.quatro));
+                fillVisor(value);
+                break;
+            case R.id.cincoBtn:
+                value = value+(getString(R.string.cinco));
+                fillVisor(value);
+                break;
+            case R.id.seisBtn:
+                value = value+(getString(R.string.seis));
+                fillVisor(value);
+                break;
+            case R.id.seteBtn:
+                value = value+(getString(R.string.sete));
+                fillVisor(value);
+                break;
+            case R.id.oitoBtn:
+                value = value+(getString(R.string.oito));
+                fillVisor(value);
+                break;
+            case R.id.noveBtn:
+                value = value+(getString(R.string.nove));
+                fillVisor(value);
                 break;
             case R.id.limparBtn:
                 value = "";
