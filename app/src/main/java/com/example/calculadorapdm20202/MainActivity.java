@@ -24,6 +24,11 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         visorTv=findViewById(R.id.visorTv);
+
+        if(savedInstanceState != null) {
+            visorTv.setText(savedInstanceState.getString(VALOR_VISOR_TV, ""));
+            value = savedInstanceState.getString(VALOR_VISOR_TV,"");
+        }
     }
 
     @Override
@@ -67,8 +72,8 @@ public class MainActivity extends AppCompatActivity{
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         Log.v(getString(R.string.app_name), "onRestoreInstanceState executado - restaurando dados de instancia");
-        visorTv.setText(savedInstanceState.getString(VALOR_VISOR_TV,""));
-        value = savedInstanceState.getString(VALOR_VISOR_TV,"");
+        //visorTv.setText(savedInstanceState.getString(VALOR_VISOR_TV,""));
+        //value = savedInstanceState.getString(VALOR_VISOR_TV,"");
     }
 
     @Override
