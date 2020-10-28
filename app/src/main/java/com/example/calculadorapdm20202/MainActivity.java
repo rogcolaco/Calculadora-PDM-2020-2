@@ -60,14 +60,15 @@ public class MainActivity extends AppCompatActivity{
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.v(getString(R.string.app_name), "onSaveInstanceState executado - salvando dados de instancia");
-        outState.putString("valor_visor_tv",visorTv.getText().toString());
+        outState.putString(VALOR_VISOR_TV,visorTv.getText().toString());
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         Log.v(getString(R.string.app_name), "onRestoreInstanceState executado - restaurando dados de instancia");
-        visorTv.setText(savedInstanceState.getString("valor_visor_tv"));
+        visorTv.setText(savedInstanceState.getString(VALOR_VISOR_TV,""));
+        value = savedInstanceState.getString(VALOR_VISOR_TV,"");
     }
 
     @Override
