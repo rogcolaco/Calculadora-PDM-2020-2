@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity{
     private TextView visorTv;
     private String value = "";
+    private final String VALOR_VISOR_TV = "VALOR_VISOR_TV";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

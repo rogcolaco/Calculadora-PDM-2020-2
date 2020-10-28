@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/hello_world_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.CalculadoraPDM20202">
+        <activity android:name=".ConfiguracoesActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
