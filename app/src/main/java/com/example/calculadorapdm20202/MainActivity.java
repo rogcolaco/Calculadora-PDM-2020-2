@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
@@ -67,6 +68,12 @@ public class MainActivity extends AppCompatActivity{
         super.onRestoreInstanceState(savedInstanceState);
         Log.v(getString(R.string.app_name), "onRestoreInstanceState executado - restaurando dados de instancia");
         visorTv.setText(savedInstanceState.getString("valor_visor_tv"));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+        return true;
     }
 
     public void fillVisor(String s){
