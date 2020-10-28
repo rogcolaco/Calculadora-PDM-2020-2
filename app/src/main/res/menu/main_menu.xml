@@ -2,15 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:title="@string/mi_configuracoes"
-        android:id="@+id/configuracoes"
-        app:showAsAction="never"
-        android:orderInCategory="1"/>
+        android:title="@string/configuracoesMi"
+        android:id="@+id/configuracoesMi"
+        app:showAsAction="always"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_configuracoes"/>
 
     <item
-        android:title="@string/mi_sair"
-        android:id="@+id/sair"
+        android:title="@string/sairMi"
+        android:id="@+id/sairMi"
         app:showAsAction="never"
-        android:orderInCategory="2"/>
+        android:orderInCategory="2"
+        android:icon="@drawable/ic_sair"/>
 
 </menu>

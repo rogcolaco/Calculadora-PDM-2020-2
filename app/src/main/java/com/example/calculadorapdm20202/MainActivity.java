@@ -3,13 +3,13 @@ package com.example.calculadorapdm20202;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
     private TextView visorTv;
@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity{
             visorTv.setText(savedInstanceState.getString(VALOR_VISOR_TV, ""));
             value = savedInstanceState.getString(VALOR_VISOR_TV,"");
         }
+
+        getSupportActionBar().setSubtitle("Tela Principal");
     }
 
     @Override
@@ -80,6 +82,23 @@ public class MainActivity extends AppCompatActivity{
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu,menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.configuracoesMi:
+                Intent configuracoesIntent = new Intent(this, ConfiguracoesActivity.class);
+                startActivity(configuracoesIntent);
+                return true;
+
+            case R.id.sairMi:
+                finish();
+                return true;
+
+            default:
+                return false;
+        }
     }
 
     public void fillVisor(String s){

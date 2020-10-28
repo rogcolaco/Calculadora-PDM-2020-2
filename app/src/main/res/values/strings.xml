@@ -11,6 +11,6 @@
     <string name="sete">7</string>
     <string name="oito">8</string>
     <string name="nove">9</string>
-    <string name="mi_configuracoes">Configurações</string>
-    <string name="mi_sair">Sair</string>
+    <string name="configuracoesMi">Configurações</string>
+    <string name="sairMi">Sair</string>
 </resources>
