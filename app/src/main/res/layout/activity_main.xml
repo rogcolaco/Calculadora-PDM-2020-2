@@ -2,18 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/visorTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
         android:gravity="right"
-        android:text="" />
+        android:text=""
+        android:textSize="25sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,31 +24,41 @@
             android:id="@+id/umBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:onClick="onClick"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="20dp"
             android:text="@string/um" />
 
         <Button
             android:id="@+id/doisBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:onClick="onClick"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
             android:text="@string/dois" />
 
         <Button
             android:id="@+id/tresBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:onClick="onClick"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="10dp"
             android:text="@string/tres" />
+
+        <Button
+            android:id="@+id/divisaoBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="@string/divisao" />
 
     </LinearLayout>
 
@@ -62,31 +72,41 @@
             android:id="@+id/quatroBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:onClick="onClick"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="20dp"
             android:text="@string/quatro" />
 
         <Button
             android:id="@+id/cincoBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:onClick="onClick"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
             android:text="@string/cinco" />
 
         <Button
             android:id="@+id/seisBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:onClick="onClick"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="10dp"
             android:text="@string/seis" />
+
+        <Button
+            android:id="@+id/multiplicaBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="@string/multiplica" />
 
     </LinearLayout>
 
@@ -100,31 +120,41 @@
             android:id="@+id/seteBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:onClick="onClick"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="20dp"
             android:text="@string/sete" />
 
         <Button
             android:id="@+id/oitoBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:onClick="onClick"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
             android:text="@string/oito" />
 
         <Button
             android:id="@+id/noveBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:onClick="onClick"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="10dp"
             android:text="@string/nove" />
+
+        <Button
+            android:id="@+id/menosBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="@string/menos" />
 
     </LinearLayout>
 
@@ -133,26 +163,65 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/zeroBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:onClick="onClick"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="20dp"
-        android:text="@string/zero" />
+        <Button
+            android:id="@+id/zeroBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="@string/zero" />
 
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/limparBtn"
-        android:onClick="onClick"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="10dp"
-        android:text="@string/limpar"/>
+        <Button
+            android:id="@+id/virgulaBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="@string/virgula" />
+
+        <Button
+            android:id="@+id/zigualBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="@string/igual" />
+
+        <Button
+            android:id="@+id/maisBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="@string/mais" />
+
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/limparBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="@string/limpar" />
+
+    </LinearLayout>
+
 
 </LinearLayout>
