@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         outState.putString(VALOR_VISOR_TV, visorTv.getText().toString());
         outState.putString(OP, op);
         outState.putBoolean(String.valueOf(USE_COLON), useColon);
-        outState.putDouble(String.valueOf(RESULT),result);
+        outState.putDouble(String.valueOf(RESULT), result);
     }
 
     @Override
@@ -190,20 +190,20 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.maisBtn:
-                if (!visorTv.getText().toString().equals("") && result==null) {
+                if (!visorTv.getText().toString().equals("") && result == null) {
 
-                    value = visorTv.getText().toString().replace(",",".");
+                    value = visorTv.getText().toString().replace(",", ".");
                     result = 0.0;
                     result = result + Double.parseDouble(value);
 
-                } else if (!visorTv.getText().toString().equals("") && result!=null && op.equals("=")){
+                } else if (!visorTv.getText().toString().equals("") && result != null && op.equals("=")) {
 
-                    value = visorTv.getText().toString().replace(",",".");
+                    value = visorTv.getText().toString().replace(",", ".");
                     result = Double.parseDouble(value);
 
-                }else if (!visorTv.getText().toString().equals("") && result!=null && op.equals("+")){
+                } else if (!visorTv.getText().toString().equals("") && result != null && op.equals("+")) {
 
-                    value = visorTv.getText().toString().replace(",",".");
+                    value = visorTv.getText().toString().replace(",", ".");
                     result = result + Double.parseDouble(value);
 
                 } else {
@@ -215,14 +215,48 @@ public class MainActivity extends AppCompatActivity {
                 limpaVisor();
                 break;
 
+            case R.id.menosBtn:
+                if (!visorTv.getText().toString().equals("") && result == null) {
+
+                    value = visorTv.getText().toString().replace(",", ".");
+                    result = 0.0;
+                    result = result - Double.parseDouble(value);
+
+                } else if (!visorTv.getText().toString().equals("") && result != null && op.equals("=")) {
+
+                    value = visorTv.getText().toString().replace(",", ".");
+                    result = Double.parseDouble(value);
+
+                } else if (!visorTv.getText().toString().equals("") && result != null && op.equals("+")) {
+
+                    value = visorTv.getText().toString().replace(",", ".");
+                    result = result - Double.parseDouble(value);
+
+                } else {
+
+                    fillVisor(String.valueOf(result).replace(".", ","));
+
+                }
+                op = getString(R.string.menos);
+                limpaVisor();
+                break;
+
             case R.id.igualBtn:
 
                 if (!visorTv.getText().toString().equals("")) {
                     switch (op) {
                         case "+":
-                            value = visorTv.getText().toString().replace(",",".");
+                            value = visorTv.getText().toString().replace(",", ".");
                             result = result + Double.parseDouble(value);
+                            break;
+
+                        case "-":
+                            value = visorTv.getText().toString().replace(",", ".");
+                            result = result - Double.parseDouble(value);
+                            break;
                     }
+
+
                 }
                 op = getString(R.string.igual);
                 fillVisor(String.valueOf(result).replace(".", ","));
