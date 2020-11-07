@@ -11,13 +11,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
     private TextView visorTv;
     private String value = "";
-    private boolean useColon = false;
+    private Boolean useColon = false;
+    //private Double number = 0.0;
+    private Double result = null;
+    private String op = null;
 
     private final String VALOR_VISOR_TV = "VALOR_VISOR_TV";
+    private final String OP = "OP";
     private final Boolean USE_COLON = false;
+    private final Double RESULT = 0.0;
 
 
     @Override
@@ -27,12 +32,14 @@ public class MainActivity extends AppCompatActivity{
         Log.v(getString(R.string.app_name), "onCreate executado - iniciado ciclo de vida completo");
         setContentView(R.layout.activity_main);
 
-        visorTv=findViewById(R.id.visorTv);
+        visorTv = findViewById(R.id.visorTv);
 
-        if(savedInstanceState != null) {
+        if (savedInstanceState != null) {
             visorTv.setText(savedInstanceState.getString(VALOR_VISOR_TV, ""));
-            value = savedInstanceState.getString(VALOR_VISOR_TV,"");
+            value = savedInstanceState.getString(VALOR_VISOR_TV, "");
             useColon = savedInstanceState.getBoolean(String.valueOf(USE_COLON), false);
+            result = savedInstanceState.getDouble(String.valueOf(RESULT), 0.0);
+            op = savedInstanceState.getString(OP, null);
         }
 
         getSupportActionBar().setSubtitle("Tela Principal");
@@ -72,8 +79,10 @@ public class MainActivity extends AppCompatActivity{
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.v(getString(R.string.app_name), "onSaveInstanceState executado - salvando dados de instancia");
-        outState.putString(VALOR_VISOR_TV,visorTv.getText().toString());
+        outState.putString(VALOR_VISOR_TV, visorTv.getText().toString());
+        outState.putString(OP, op);
         outState.putBoolean(String.valueOf(USE_COLON), useColon);
+        outState.putDouble(String.valueOf(RESULT),result);
     }
 
     @Override
@@ -86,13 +95,13 @@ public class MainActivity extends AppCompatActivity{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu,menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.configuracoesMi:
                 Intent configuracoesIntent = new Intent(this, ConfiguracoesActivity.class);
                 startActivity(configuracoesIntent);
@@ -107,11 +116,16 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 
-    public void fillVisor(String s){
+    public void fillVisor(String s) {
         visorTv.setText(s);
     }
 
-    public void onClick(View view){
+    public void limpaVisor() {
+        value = "";
+        fillVisor(value);
+    }
+
+    public void onClick(View view) {
         switch ((view.getId())) {
             case R.id.zeroBtn:
                 if (!value.equals("")) {
@@ -120,57 +134,100 @@ public class MainActivity extends AppCompatActivity{
                 }
                 break;
             case R.id.umBtn:
-                value = value+(getString(R.string.um));
+                value = value + (getString(R.string.um));
                 fillVisor(value);
                 break;
             case R.id.doisBtn:
-                value = value+(getString(R.string.dois));
+                value = value + (getString(R.string.dois));
                 fillVisor(value);
-                  break;
+                break;
             case R.id.tresBtn:
-                value = value+(getString(R.string.tres));
+                value = value + (getString(R.string.tres));
                 fillVisor(value);
                 break;
             case R.id.quatroBtn:
-                value = value+(getString(R.string.quatro));
+                value = value + (getString(R.string.quatro));
                 fillVisor(value);
                 break;
             case R.id.cincoBtn:
-                value = value+(getString(R.string.cinco));
+                value = value + (getString(R.string.cinco));
                 fillVisor(value);
                 break;
             case R.id.seisBtn:
-                value = value+(getString(R.string.seis));
+                value = value + (getString(R.string.seis));
                 fillVisor(value);
                 break;
             case R.id.seteBtn:
-                value = value+(getString(R.string.sete));
+                value = value + (getString(R.string.sete));
                 fillVisor(value);
                 break;
             case R.id.oitoBtn:
-                value = value+(getString(R.string.oito));
+                value = value + (getString(R.string.oito));
                 fillVisor(value);
                 break;
             case R.id.noveBtn:
-                value = value+(getString(R.string.nove));
+                value = value + (getString(R.string.nove));
                 fillVisor(value);
                 break;
             case R.id.limparBtn:
                 value = "";
-                useColon=false;
+                useColon = false;
+                result = null;
+                op = null;
                 fillVisor(value);
                 break;
 
             case R.id.virgulaBtn:
-                if (!useColon && value.equals("")){
+                if (!useColon && value.equals("")) {
                     value = getString(R.string.zero) + getString(R.string.virgula);
                     fillVisor(value);
                     useColon = true;
-                } else if (!useColon){
+                } else if (!useColon) {
                     value = value + getString(R.string.virgula);
                     fillVisor(value);
                     useColon = true;
                 }
+                break;
+
+            case R.id.maisBtn:
+                if (!visorTv.getText().toString().equals("") && result==null) {
+
+                    value = visorTv.getText().toString().replace(",",".");
+                    result = 0.0;
+                    result = result + Double.parseDouble(value);
+
+                } else if (!visorTv.getText().toString().equals("") && result!=null && op.equals("=")){
+
+                    value = visorTv.getText().toString().replace(",",".");
+                    result = Double.parseDouble(value);
+
+                }else if (!visorTv.getText().toString().equals("") && result!=null && op.equals("+")){
+
+                    value = visorTv.getText().toString().replace(",",".");
+                    result = result + Double.parseDouble(value);
+
+                } else {
+
+                    fillVisor(String.valueOf(result).replace(".", ","));
+
+                }
+                op = getString(R.string.mais);
+                limpaVisor();
+                break;
+
+            case R.id.igualBtn:
+
+                if (!visorTv.getText().toString().equals("")) {
+                    switch (op) {
+                        case "+":
+                            value = visorTv.getText().toString().replace(",",".");
+                            result = result + Double.parseDouble(value);
+                    }
+                }
+                op = getString(R.string.igual);
+                fillVisor(String.valueOf(result).replace(".", ","));
+                break;
+
         }
 
     }
