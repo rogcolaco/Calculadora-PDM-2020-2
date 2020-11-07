@@ -14,7 +14,11 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity{
     private TextView visorTv;
     private String value = "";
+    private boolean useColon = false;
+
     private final String VALOR_VISOR_TV = "VALOR_VISOR_TV";
+    private final Boolean USE_COLON = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity{
         if(savedInstanceState != null) {
             visorTv.setText(savedInstanceState.getString(VALOR_VISOR_TV, ""));
             value = savedInstanceState.getString(VALOR_VISOR_TV,"");
+            useColon = savedInstanceState.getBoolean(String.valueOf(USE_COLON), false);
         }
 
         getSupportActionBar().setSubtitle("Tela Principal");
@@ -68,6 +73,7 @@ public class MainActivity extends AppCompatActivity{
         super.onSaveInstanceState(outState);
         Log.v(getString(R.string.app_name), "onSaveInstanceState executado - salvando dados de instancia");
         outState.putString(VALOR_VISOR_TV,visorTv.getText().toString());
+        outState.putBoolean(String.valueOf(USE_COLON), useColon);
     }
 
     @Override
@@ -151,8 +157,20 @@ public class MainActivity extends AppCompatActivity{
                 break;
             case R.id.limparBtn:
                 value = "";
+                useColon=false;
                 fillVisor(value);
                 break;
+
+            case R.id.virgulaBtn:
+                if (!useColon && value.equals("")){
+                    value = getString(R.string.zero) + getString(R.string.virgula);
+                    fillVisor(value);
+                    useColon = true;
+                } else if (!useColon){
+                    value = value + getString(R.string.virgula);
+                    fillVisor(value);
+                    useColon = true;
+                }
         }
 
     }
