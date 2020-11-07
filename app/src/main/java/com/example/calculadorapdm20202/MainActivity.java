@@ -220,14 +220,14 @@ public class MainActivity extends AppCompatActivity {
 
                     value = visorTv.getText().toString().replace(",", ".");
                     result = 0.0;
-                    result = result - Double.parseDouble(value);
+                    result = result + Double.parseDouble(value);
 
                 } else if (!visorTv.getText().toString().equals("") && result != null && op.equals("=")) {
 
                     value = visorTv.getText().toString().replace(",", ".");
                     result = Double.parseDouble(value);
 
-                } else if (!visorTv.getText().toString().equals("") && result != null && op.equals("+")) {
+                } else if (!visorTv.getText().toString().equals("") && result != null && op.equals("-")) {
 
                     value = visorTv.getText().toString().replace(",", ".");
                     result = result - Double.parseDouble(value);
@@ -238,6 +238,63 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 op = getString(R.string.menos);
+                limpaVisor();
+                break;
+
+            case R.id.multiplicaBtn:
+                if (!visorTv.getText().toString().equals("") && result == null) {
+
+                    value = visorTv.getText().toString().replace(",", ".");
+                    result = 0.0;
+                    result = result + Double.parseDouble(value);
+
+                } else if (!visorTv.getText().toString().equals("") && result != null && op.equals("=")) {
+
+                    value = visorTv.getText().toString().replace(",", ".");
+                    result = Double.parseDouble(value);
+
+                } else if (!visorTv.getText().toString().equals("") && result != null && op.equals("x")) {
+
+                    value = visorTv.getText().toString().replace(",", ".");
+                    result = result * Double.parseDouble(value);
+
+                } else {
+
+                    fillVisor(String.valueOf(result).replace(".", ","));
+
+                }
+                op = getString(R.string.multiplica);
+                limpaVisor();
+                break;
+
+            case R.id.divisaoBtn:
+                if (!visorTv.getText().toString().equals("") && result == null) {
+
+                    value = visorTv.getText().toString().replace(",", ".");
+                    result = 0.0;
+                    result = result + Double.parseDouble(value);
+
+                } else if (!visorTv.getText().toString().equals("") && result != null && op.equals("=")) {
+
+                    value = visorTv.getText().toString().replace(",", ".");
+                    result = Double.parseDouble(value);
+
+                } else if (!visorTv.getText().toString().equals("") && result != null && op.equals("/")) {
+
+                    value = visorTv.getText().toString().replace(",", ".");
+                    try {
+                        result = result / Double.parseDouble(value);
+                    } catch (Exception e) {
+                        fillVisor("Impossível divisão");
+                        break;
+                    }
+
+                } else {
+
+                    fillVisor(String.valueOf(result).replace(".", ","));
+
+                }
+                op = getString(R.string.divisao);
                 limpaVisor();
                 break;
 
@@ -253,6 +310,21 @@ public class MainActivity extends AppCompatActivity {
                         case "-":
                             value = visorTv.getText().toString().replace(",", ".");
                             result = result - Double.parseDouble(value);
+                            break;
+
+                        case "x":
+                            value = visorTv.getText().toString().replace(",", ".");
+                            result = result * Double.parseDouble(value);
+                            break;
+
+                        case "/":
+                            value = visorTv.getText().toString().replace(",", ".");
+                            try {
+                                result = result / Double.parseDouble(value);
+                            } catch (Exception e) {
+                                fillVisor("Impossível divisão");
+                                break;
+                            }
                             break;
                     }
 
