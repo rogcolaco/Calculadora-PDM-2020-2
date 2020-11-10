@@ -9,6 +9,13 @@
         android:icon="@drawable/ic_configuracoes"/>
 
     <item
+        android:title="@string/chamar_Ifsp"
+        android:id="@+id/chamarIfspMi"
+        app:showAsAction="always"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_chamar"/>
+
+    <item
         android:title="@string/site_ifsp"
         android:id="@+id/siteIfspMi"
         app:showAsAction="never"

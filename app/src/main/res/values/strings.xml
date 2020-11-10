@@ -20,4 +20,5 @@
     <string name="multiplica">x</string>
     <string name="divisao">/</string>
     <string name="site_ifsp">Site IFSP</string>
+    <string name="chamar_Ifsp">Chamar</string>
 </resources>
