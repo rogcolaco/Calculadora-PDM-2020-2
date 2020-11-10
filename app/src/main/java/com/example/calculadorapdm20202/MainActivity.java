@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -110,6 +111,13 @@ public class MainActivity extends AppCompatActivity {
                 /*DEFININDO UMA ACTION PARTICULAR DO NOSSO APLICATIVO*/
                 Intent configuracoesIntent = new Intent("CONFIGURACOES");
                 startActivity(configuracoesIntent);
+                return true;
+
+            case R.id.siteIfspMi:
+                /*DEFINIR URL*/
+                Uri siteIfspUri = Uri.parse("https://ifsp.edu.br");
+                Intent siteIfspIntent = new Intent(Intent.ACTION_VIEW, siteIfspUri);
+                startActivity(siteIfspIntent);
                 return true;
 
             case R.id.sairMi:

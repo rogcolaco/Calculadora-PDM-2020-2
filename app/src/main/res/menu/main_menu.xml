@@ -9,6 +9,12 @@
         android:icon="@drawable/ic_configuracoes"/>
 
     <item
+        android:title="@string/site_ifsp"
+        android:id="@+id/siteIfspMi"
+        app:showAsAction="never"
+        android:orderInCategory="1" />
+
+    <item
         android:title="@string/sairMi"
         android:id="@+id/sairMi"
         app:showAsAction="never"
