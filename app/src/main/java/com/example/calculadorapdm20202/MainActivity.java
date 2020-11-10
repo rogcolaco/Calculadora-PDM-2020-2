@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private final String VALOR_VISOR_TV = "VALOR_VISOR_TV";
     private final String OP = "OP";
     private final Boolean USE_COLON = false;
-    private final Double RESULT = 0.0;
+    private final String RESULT = "RESULT";
 
 
     @Override
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             visorTv.setText(savedInstanceState.getString(VALOR_VISOR_TV, ""));
             value = savedInstanceState.getString(VALOR_VISOR_TV, "");
             useColon = savedInstanceState.getBoolean(String.valueOf(USE_COLON), false);
-            result = savedInstanceState.getDouble(String.valueOf(RESULT), 0.0);
+            result = Double.parseDouble(savedInstanceState.getString(RESULT, null));
             op = savedInstanceState.getString(OP, null);
         }
 
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         outState.putString(VALOR_VISOR_TV, visorTv.getText().toString());
         outState.putString(OP, op);
         outState.putBoolean(String.valueOf(USE_COLON), useColon);
-        outState.putDouble(String.valueOf(RESULT), result);
+        outState.putString(RESULT, String.valueOf(result));
     }
 
     @Override
