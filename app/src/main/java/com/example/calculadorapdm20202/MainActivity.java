@@ -103,7 +103,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.configuracoesMi:
-                Intent configuracoesIntent = new Intent(this, ConfiguracoesActivity.class);
+
+                /*Intent configuracoesIntent = new Intent(this, ConfiguracoesActivity.class);
+                startActivity(configuracoesIntent);*/
+
+                /*DEFININDO UMA ACTION PARTICULAR DO NOSSO APLICATIVO*/
+                Intent configuracoesIntent = new Intent("CONFIGURACOES");
                 startActivity(configuracoesIntent);
                 return true;
 
