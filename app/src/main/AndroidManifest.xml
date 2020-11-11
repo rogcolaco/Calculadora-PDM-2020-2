@@ -12,14 +12,14 @@
         android:roundIcon="@mipmap/hello_world_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.CalculadoraPDM20202">
-        <activity android:name=".ConfiguracoesActivity">
+        <activity android:name=".view.ConfiguracoesActivity">
             <intent-filter>
                 <action android:name="CONFIGURACOES" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

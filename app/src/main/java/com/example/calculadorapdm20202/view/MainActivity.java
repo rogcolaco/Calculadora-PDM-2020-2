@@ -1,4 +1,4 @@
-package com.example.calculadorapdm20202;
+package com.example.calculadorapdm20202.view;
 
 import android.Manifest;
 import android.content.Intent;
@@ -14,7 +14,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.calculadorapdm20202.Configuracoes;
+import com.example.calculadorapdm20202.R;
 
 public class MainActivity extends AppCompatActivity {
     private TextView visorTv;
@@ -23,12 +27,17 @@ public class MainActivity extends AppCompatActivity {
     private Double result = null;
     private String op = null;
 
-    private final int CALL_PHONE_PERMISSION_REQUEST_CODE = 1;
+    private final int CALL_PHONE_PERMISSION_REQUEST_CODE = 0;
+    private final int CONFIGURACOES_REQUEST_CODE = 1;
+
+    public static final String EXTRA_CONFIGURACOES = "EXTRA_CONFIGURACOES";
 
     private final String VALOR_VISOR_TV = "VALOR_VISOR_TV";
     private final String OP = "OP";
     private final Boolean USE_COLON = false;
     private final String RESULT = "RESULT";
+
+    private Configuracoes configuracoes = new Configuracoes(false);
 
 
     @Override
@@ -115,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
 
                 /*DEFININDO UMA ACTION PARTICULAR DO NOSSO APLICATIVO*/
                 Intent configuracoesIntent = new Intent("CONFIGURACOES");
-                startActivity(configuracoesIntent);
+                configuracoesIntent.putExtra(EXTRA_CONFIGURACOES, configuracoes);
+                startActivityForResult(configuracoesIntent, CONFIGURACOES_REQUEST_CODE);
                 return true;
 
             case R.id.chamarIfspMi:
@@ -385,6 +395,17 @@ public class MainActivity extends AppCompatActivity {
                 Uri chamarIfspUri = Uri.parse("tel:1137754501");
                 Intent chamarIfspIntent = new Intent(Intent.ACTION_CALL, chamarIfspUri);
                 startActivity(chamarIfspIntent);
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CONFIGURACOES_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
+            configuracoes = data.getParcelableExtra(EXTRA_CONFIGURACOES);
+            if (configuracoes != null && configuracoes.getAvancada()) {
+                findViewById(R.id.raizQuadradaBtn).setVisibility(View.VISIBLE);
             }
         }
     }

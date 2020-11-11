@@ -21,4 +21,8 @@
     <string name="divisao">/</string>
     <string name="site_ifsp">Site IFSP</string>
     <string name="chamar_Ifsp">Chamar</string>
+    <string name="tipo_calculadora">Tipo Calculadora</string>
+    <string name="avancada">Avançada</string>
+    <string name="basica">Básica</string>
+    <string name="raiz_quadrada">raiz Quadrada</string>
 </resources>
