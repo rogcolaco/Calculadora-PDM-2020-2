@@ -371,6 +371,25 @@ public class MainActivity extends AppCompatActivity {
                 fillVisor(String.valueOf(result).replace(".", ","));
                 break;
 
+
+            case R.id.raizQuadradaBtn:
+                if (!visorTv.getText().toString().equals("") && result == null) {
+
+                    value = visorTv.getText().toString().replace(",", ".");
+                    result = 0.0;
+                    result = result + Double.parseDouble(value);
+                    result = Math.sqrt(result);
+                    fillVisor(String.valueOf(result));
+                } else if (!visorTv.getText().toString().equals("") && result != null && op.equals("=")) {
+
+                    value = visorTv.getText().toString().replace(",", ".");
+                    result = Math.sqrt(result);
+                    fillVisor(String.valueOf(result));
+                }
+                else {
+                    fillVisor("0,0");
+                }
+                break;
         }
 
     }
