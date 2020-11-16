@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,19 +10,20 @@
         android:id="@+id/tipoCalculadoraTv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/tipo_calculadora"
         android:gravity="center_horizontal"
+        android:text="@string/tipo_calculadora"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
         android:id="@+id/tipoCalculadoraRg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tipoCalculadoraTv" >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tipoCalculadoraTv">
 
         <RadioButton
             android:id="@+id/avancadoRb"
@@ -39,10 +40,13 @@
     </RadioGroup>
 
     <Button
-    android:id="@+id/salvarBtn"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:onClick="onClick"
-    android:text="Salvar" />
+        android:id="@+id/salvarBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="@string/salvar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tipoCalculadoraRg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

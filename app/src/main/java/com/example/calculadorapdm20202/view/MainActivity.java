@@ -129,9 +129,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.chamarIfspMi:
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    if (checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
-                        requestPermissions(new String[] {Manifest.permission.CALL_PHONE},CALL_PHONE_PERMISSION_REQUEST_CODE);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        requestPermissions(new String[]{Manifest.permission.CALL_PHONE}, CALL_PHONE_PERMISSION_REQUEST_CODE);
                     }
                 }
                 chamarIfsp();
@@ -378,9 +378,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode == CALL_PHONE_PERMISSION_REQUEST_CODE) {
-            for (int resultado: grantResults){
-                if (resultado != PackageManager.PERMISSION_GRANTED){
+        if (requestCode == CALL_PHONE_PERMISSION_REQUEST_CODE) {
+            for (int resultado : grantResults) {
+                if (resultado != PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(this, "Permissão necessária não concedida", Toast.LENGTH_SHORT).show();
                     finish();
                 }
@@ -389,9 +389,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void chamarIfsp(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            if (checkSelfPermission(Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED){
+    private void chamarIfsp() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
                 Uri chamarIfspUri = Uri.parse("tel:1137754501");
                 Intent chamarIfspIntent = new Intent(Intent.ACTION_CALL, chamarIfspUri);
                 startActivity(chamarIfspIntent);
@@ -406,6 +406,8 @@ public class MainActivity extends AppCompatActivity {
             configuracoes = data.getParcelableExtra(EXTRA_CONFIGURACOES);
             if (configuracoes != null && configuracoes.getAvancada()) {
                 findViewById(R.id.raizQuadradaBtn).setVisibility(View.VISIBLE);
+            } else {
+                findViewById(R.id.raizQuadradaBtn).setVisibility(View.GONE);
             }
         }
     }

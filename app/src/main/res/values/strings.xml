@@ -24,5 +24,6 @@
     <string name="tipo_calculadora">Tipo Calculadora</string>
     <string name="avancada">Avançada</string>
     <string name="basica">Básica</string>
-    <string name="raiz_quadrada">raiz Quadrada</string>
+    <string name="raiz_quadrada">√</string>
+    <string name="salvar">Salvar</string>
 </resources>

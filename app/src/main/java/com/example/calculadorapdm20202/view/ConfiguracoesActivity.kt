@@ -28,12 +28,11 @@ class ConfiguracoesActivity : AppCompatActivity() {
         if(view.id == R.id.salvarBtn){
             /*ENVIAR CONFIGURAÇÃO PARA MAIN ACTIVITY*/
             configuracoes.avancada = avancadoRb.isChecked
-            val resultadoIntent = Intent()
+            val resultadoIntent: Intent = Intent()
             resultadoIntent.putExtra(MainActivity.EXTRA_CONFIGURACOES,configuracoes)
             setResult(RESULT_OK, resultadoIntent)
 
             finish()
-
         }
     }
 }
