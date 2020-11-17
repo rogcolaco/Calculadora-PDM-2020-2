@@ -379,16 +379,17 @@ public class MainActivity extends AppCompatActivity {
                     result = 0.0;
                     result = result + Double.parseDouble(value);
                     result = Math.sqrt(result);
-                    fillVisor(String.valueOf(result));
+                    fillVisor(String.valueOf(result).replace(".", ","));
                 } else if (!visorTv.getText().toString().equals("") && result != null && op.equals("=")) {
 
                     value = visorTv.getText().toString().replace(",", ".");
                     result = Math.sqrt(result);
-                    fillVisor(String.valueOf(result));
+                    fillVisor(String.valueOf(result).replace(".", ","));
                 }
                 else {
                     fillVisor("0,0");
                 }
+                op = getString(R.string.igual);
                 break;
         }
 
