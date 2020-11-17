@@ -233,11 +233,22 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:onClick="onClick"
             android:visibility="gone"
             android:text="@string/raiz_quadrada" />
+
+        <Button
+            android:id="@+id/portenciacaoBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:visibility="gone"
+            android:text="@string/potenciaXY" />
 
     </LinearLayout>
 

@@ -426,8 +426,10 @@ public class MainActivity extends AppCompatActivity {
             configuracoes = data.getParcelableExtra(EXTRA_CONFIGURACOES);
             if (configuracoes != null && configuracoes.getAvancada()) {
                 findViewById(R.id.raizQuadradaBtn).setVisibility(View.VISIBLE);
+                findViewById(R.id.portenciacaoBtn).setVisibility(View.VISIBLE);
             } else {
                 findViewById(R.id.raizQuadradaBtn).setVisibility(View.GONE);
+                findViewById(R.id.portenciacaoBtn).setVisibility(View.GONE);
             }
         }
     }

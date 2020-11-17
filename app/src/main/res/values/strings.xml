@@ -26,4 +26,5 @@
     <string name="basica">Básica</string>
     <string name="raiz_quadrada">√</string>
     <string name="salvar">Salvar</string>
+    <string name="potenciaXY">x^y</string>
 </resources>
