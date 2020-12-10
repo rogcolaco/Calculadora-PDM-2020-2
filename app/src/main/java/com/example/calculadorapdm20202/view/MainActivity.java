@@ -391,6 +391,35 @@ public class MainActivity extends AppCompatActivity {
                 }
                 op = getString(R.string.igual);
                 break;
+
+            case R.id.portenciacaoBtn:
+
+                Double base, exp, powResult;
+                String newOp = null;
+                base = 0.0;
+                if(newOp == null && !visorTv.getText().toString().equals("")){
+                    value = visorTv.getText().toString().replace(",", ".");
+                    base = Double.parseDouble(value);
+                    newOp = "pow";
+                } else {
+                    if (visorTv.getText().toString().equals("")) {
+                        if (op.equals("+"))  result = result + 1;
+                        if (op.equals("-"))  result = result - 1;
+                        if (op.equals("*"))  result = result * 1;
+                        if (op.equals("/"))  result = result / 1;
+                    } else {
+                        value = visorTv.getText().toString().replace(",", ".");
+                        exp = Double.parseDouble(value);
+                        powResult = Math.pow(base,exp);
+                        if (op.equals("+"))  result = result + powResult;
+                        if (op.equals("-"))  result = result - powResult;
+                        if (op.equals("*"))  result = result * powResult;
+                        if (op.equals("/"))  result = result / powResult;
+                    }
+                    fillVisor(String.valueOf(result));
+
+                }
+                break;
         }
 
     }
