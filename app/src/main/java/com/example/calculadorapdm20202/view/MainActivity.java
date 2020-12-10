@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private Boolean useColon = false;
     private Double result = null;
     private String op = null;
+    private Double base, exp, powResult;
+    private String newOp = null;
 
     private final int CALL_PHONE_PERMISSION_REQUEST_CODE = 0;
     private final int CONFIGURACOES_REQUEST_CODE = 1;
@@ -363,6 +365,13 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             }
                             break;
+
+                        case "pow":
+                            value = visorTv.getText().toString().replace(",", ".");
+                            exp = Double.parseDouble(value);
+                            powResult = Math.pow(base,exp);
+                            result = powResult;
+                            break;
                     }
 
 
@@ -393,34 +402,62 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.portenciacaoBtn:
+                if(newOp == null && result == null) {
+                    base = 0.0;
+                    if(!visorTv.getText().toString().equals("")) {
+                        value = visorTv.getText().toString().replace(",", ".");
+                        base = Double.parseDouble(value);
+                        newOp = "pow";
+                        op="pow";
+                        result = 0.0;
+                        limpaVisor();
+                    } else {
+                        newOp = "pow";
+                    }
+                    break;
 
-                Double base, exp, powResult;
-                String newOp = null;
-                base = 0.0;
-                if(newOp == null && !visorTv.getText().toString().equals("")){
-                    value = visorTv.getText().toString().replace(",", ".");
-                    base = Double.parseDouble(value);
-                    newOp = "pow";
-                } else {
-                    if (visorTv.getText().toString().equals("")) {
+                } else if (newOp == null && result !=null){
+                    if(!visorTv.getText().toString().equals("")) {
+                        value = visorTv.getText().toString().replace(",", ".");
+                        base = Double.parseDouble(value);
+                        newOp = "pow";
+                        limpaVisor();
+                    } else {
+                        newOp = "pow";
+                    }
+                    break;
+                }
+
+
+                else {
+                    /*if (visorTv.getText().toString().equals("")) {
                         if (op.equals("+"))  result = result + 1;
                         if (op.equals("-"))  result = result - 1;
                         if (op.equals("*"))  result = result * 1;
                         if (op.equals("/"))  result = result / 1;
-                    } else {
+                    } else {*/
                         value = visorTv.getText().toString().replace(",", ".");
                         exp = Double.parseDouble(value);
                         powResult = Math.pow(base,exp);
-                        if (op.equals("+"))  result = result + powResult;
+                        if(op.equals("pow")) result = powResult;
+                        if (op.equals("+") || op.equals("="))  result = result + powResult;
                         if (op.equals("-"))  result = result - powResult;
                         if (op.equals("*"))  result = result * powResult;
                         if (op.equals("/"))  result = result / powResult;
-                    }
                     fillVisor(String.valueOf(result));
+                    }
+                System.out.println("resultado acunulado: " + result);
+                System.out.println("valor da base: " +base);
+                System.out.println("nova operacao: " + newOp);
+                System.out.println("resultado potenciacao: " + powResult);
+                System.out.println("operacao anterior: " + op);
 
-                }
+                powResult= null;
+                base=null;
+                exp = null;
+                newOp = null;
                 break;
-        }
+                }
 
     }
 
